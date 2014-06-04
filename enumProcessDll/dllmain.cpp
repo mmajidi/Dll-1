@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #define EXPORTING_DLL
 #include "EnumProcessDll.h"
-
+extern __declspec(dllexport) void Enumproc() ;
 //header haye project1 
 
 #include <stdio.h>
@@ -116,7 +116,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 
 
-int Enumproc(int argc, char* argv[]) 
+int Enumproc(int time, int number) 
 {
 
     HANDLE hSnap;
@@ -255,4 +255,4 @@ int Enumproc(int argc, char* argv[])
 
 	return 0;
 }
-}
+

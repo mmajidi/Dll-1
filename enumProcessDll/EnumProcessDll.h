@@ -2,9 +2,9 @@
 #define INDLL_H
 
 #ifdef EXPORTING_DLL
-extern __declspec(dllexport) void enumProcessDll() ;
+extern __declspec(dllexport) void Enumproc() ;
 #else
-extern __declspec(dllimport) void enumProcessDll() ;
+extern __declspec(dllimport) void Enumproc() ;
 #endif
 
 #endif
