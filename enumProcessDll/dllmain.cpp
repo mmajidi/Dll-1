@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #define EXPORTING_DLL
 #include "EnumProcessDll.h"
-extern __declspec(dllexport) int Enumproc(int Number, int Interval)
+extern __declspec(dllexport) int Enumproc(int number, int interval);
 #include <stdio.h>
 #include <tchar.h>
 #include <windows.h>
@@ -115,7 +115,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 
 
-int Enumproc(int Number, int Interval) 
+int Enumproc(int number, int interval) 
 {
 
     HANDLE hSnap;
@@ -134,7 +134,7 @@ int Enumproc(int Number, int Interval)
 
     
 
-	for (int i = 0; i < Number ; i++) // Loop for Number of Operations and The time interval
+	for (int i = 0; i < number ; i++) // Loop for Number of Operations and The time interval
 	{
 
 		hSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
@@ -237,7 +237,7 @@ int Enumproc(int Number, int Interval)
 
 	CloseHandle(hFile);
 
-	Sleep ( Interval *1000);
+	Sleep ( interval *1000);
 
 }
 
