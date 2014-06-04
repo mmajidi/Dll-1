@@ -2,9 +2,14 @@
 #define EXPORTING_DLL
 #include "EnumProcessDll.h"
 
+//header haye project1 
 
-
-
+#include <stdio.h>
+#include <tchar.h>
+#include <windows.h>
+#include <tlhelp32.h>
+#include <time.h>
+#include <string>
 
 
 
@@ -18,12 +23,9 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 }
 
 
-#include <stdio.h>
-#include <tchar.h>
-#include <windows.h>
-#include <tlhelp32.h>
-#include <time.h>
-#include <string>
+VOID enumProcessDll()
+
+{
 
 
 /*
@@ -254,4 +256,5 @@ int main(int argc, char* argv[])
 }
 
 	return 0;
+}
 }
