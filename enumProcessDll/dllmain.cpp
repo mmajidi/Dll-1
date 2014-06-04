@@ -11,23 +11,6 @@
 #include <time.h>
 #include <string>
 
-
-
-BOOL APIENTRY DllMain( HMODULE hModule,
-                       DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-					 )
-{
-	
-	return TRUE;
-}
-
-
-VOID enumProcessDll()
-
-{
-
-
 /*
 * NtQueryInformationProcess 
 * --------------------
@@ -118,7 +101,22 @@ return string1;
 
 
 
-int main(int argc, char* argv[]) 
+
+
+
+BOOL APIENTRY DllMain( HMODULE hModule,
+                       DWORD  ul_reason_for_call,
+                       LPVOID lpReserved
+					 )
+{
+	
+	return TRUE;
+}
+
+
+
+
+int Enumproc(int argc, char* argv[]) 
 {
 
     HANDLE hSnap;
@@ -136,15 +134,15 @@ int main(int argc, char* argv[])
 	int pid;
 
 
-	if ( argc <= 1 || *argv == NULL ) // check argument 
+	//if ( argc <= 1 || *argv == NULL ) // check argument 
 
-		{
-			
-			printf ("Please enter 2 argument,Number of Operations and the time interval(second)");		
-			system ("pause");
-			return 0;
-			
-	}
+	//	{
+	//		
+	//		printf ("Please enter 2 argument,Number of Operations and the time interval(second)");		
+	//		system ("pause");
+	//		return 0;
+	//		
+	//}
 
     
 
