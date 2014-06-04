@@ -1,15 +1,14 @@
 #include "stdafx.h"
 #define EXPORTING_DLL
 #include "EnumProcessDll.h"
-extern __declspec(dllexport) void Enumproc() ;
-//header haye project1 
-
+extern __declspec(dllexport) int Enumproc(int Number, int Interval)
 #include <stdio.h>
 #include <tchar.h>
 #include <windows.h>
 #include <tlhelp32.h>
 #include <time.h>
 #include <string>
+
 
 /*
 * NtQueryInformationProcess 
@@ -35,7 +34,7 @@ typedef struct _UNICODE_STRING
     USHORT Length;
     USHORT MaximumLength;
     PWSTR Buffer;
-} UNICODE_STRING, *PUNICODE_STRING;
+} UNICODE_STRING, *PUNICODE_STRING ;
 
 
 
@@ -116,7 +115,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 
 
-int Enumproc(int time, int number) 
+int Enumproc(int Number, int Interval) 
 {
 
     HANDLE hSnap;
@@ -133,20 +132,9 @@ int Enumproc(int time, int number)
 	char* ftname;
 	int pid;
 
-
-	//if ( argc <= 1 || *argv == NULL ) // check argument 
-
-	//	{
-	//		
-	//		printf ("Please enter 2 argument,Number of Operations and the time interval(second)");		
-	//		system ("pause");
-	//		return 0;
-	//		
-	//}
-
     
 
-	for (int i = 0; i < atoi(argv[1]) ; i++) // Loop for Number of Operations and The time interval
+	for (int i = 0; i < Number ; i++) // Loop for Number of Operations and The time interval
 	{
 
 		hSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
@@ -165,7 +153,7 @@ int Enumproc(int time, int number)
 
 		ftname = ConcatFileName(fname);
 
-		hFile=CreateFile(ftname,GENERIC_WRITE,FILE_SHARE_WRITE,0,OPEN_ALWAYS,FILE_ATTRIBUTE_NORMAL,0);
+		hFile=CreateFile((LPCWSTR)ftname,GENERIC_WRITE,FILE_SHARE_WRITE,0,OPEN_ALWAYS,FILE_ATTRIBUTE_NORMAL,0);
 
  
 		while (Process32Next(hSnap,&pe))
@@ -249,7 +237,7 @@ int Enumproc(int time, int number)
 
 	CloseHandle(hFile);
 
-	Sleep (atoi(argv[2])*1000);
+	Sleep ( Interval *1000);
 
 }
 
