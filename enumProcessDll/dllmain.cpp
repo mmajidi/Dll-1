@@ -1,13 +1,10 @@
-#include "stdafx.h"
-#define EXPORTING_DLL
-#include "EnumProcessDll.h"
-extern __declspec(dllexport) int Enumproc(int number, int interval);
 #include <stdio.h>
 #include <tchar.h>
 #include <windows.h>
 #include <tlhelp32.h>
 #include <time.h>
 #include <string>
+extern __declspec(dllexport) int Enumproc(int number, int interval);
 
 
 /*
@@ -243,4 +240,3 @@ int Enumproc(int number, int interval)
 
 	return 0;
 }
-
