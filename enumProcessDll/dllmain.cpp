@@ -150,7 +150,7 @@ int Enumproc(int number, int interval)
 
 		ftname = ConcatFileName(fname);
 
-		hFile=CreateFile((LPCWSTR)ftname,GENERIC_WRITE,FILE_SHARE_WRITE,0,OPEN_ALWAYS,FILE_ATTRIBUTE_NORMAL,0);
+		hFile=CreateFile(ftname,GENERIC_WRITE,FILE_SHARE_WRITE,0,OPEN_ALWAYS,FILE_ATTRIBUTE_NORMAL,0);
 
  
 		while (Process32Next(hSnap,&pe))
